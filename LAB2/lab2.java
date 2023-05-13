@@ -1,92 +1,95 @@
 import java.util.*;
-public class lab2{
+
+public class lab2 {
+
     public static void main(String[] args){
-        String name;
-        int age;
-        String state;
-        char gender;
-        int salary;
-        String company;
-        Scanner scan = new Scanner(System.in);
-        System.out.print("enter name : ");
-        name=scan.nextLine();
-        System.out.print("enter age : ");
-        age=Integer.parseInt(scan.nextLine());
-        System.out.print("enter state : ");
-        state=scan.nextLine();
-        System.out.print("enter gender : ");
-        gender=scan.nextLine().charAt(0);
-        System.out.print("enter salary : ");
-        salary=Integer.parseInt(scan.nextLine());
-        System.out.print("Enter company name : ");
-        company=scan.nextLine();
-            
-        if(gender=='f'){
-            System.out.print("The employee " + name + " is female\n");
-        }else if(gender=='m'){
-                System.out.print("Employee " + name + " is male\n");
-            }
-            switch(state){
-                case "jammu and ashmir":
-                case "delhi":
-                case "uttar pradesh":
-                {
-                    System.out.print(name + "is coming from " + state + " which is the northern part of india\n");
-                    break;
-                }
 
-            
-                case "gujarat":
-                case "goa":
-                case "madhyapradesh":
-                case "maharashtra":
-                {
-                    System.out.print(name + "is coming from " + state +" which is the western part of india\n");
-                    break;
-                }
+        Scanner scan=new Scanner(System.in);
+        String[] names=new String[1024];
+        int option;
+        int elm=0;
+        do{
+            System.out.println("which option would you like to choose \n 1.add name \n 2.seachname \n3.remove name \n 4.show all names");
+            int choice=Integer.parseInt(scan.nextLine());
+            switch(choice){
+                case 1:
+                System.out.println("Enter number of names you want to enter :");
+                int num=Integer.parseInt(scan.nextLine());
+                for(int i=0;i<num;i++){
+                    System.out.println("Enter the name :");
+                    String name=scan.nextLine();
+                    boolean found=false;
+                    for(int j=0;j<names.length;j++){
+                        if(name.equals(names[j])){
+                            System.out.println("NAME EXIST");
+                            found=true;
+                            break;
+                        }
 
-                case "westbengal":
-                case "bihar":
-                case "jharkhand":
-                case "odisha":
-                {
-                    System.out.print(name + "is coming from " + state + " which is the eastern part of india\n");
-                    break;
+                    }
+                    if(!found){
+                        names[elm]=name;
+                        elm++;
+                    }
                 }
-
-                case "kerala":
-                case "tamil nadu":
-                case "andhra pradesh":
-                case "karnataka":
-                case "telangana":
-                {
-                    System.out.print(name + "  is coming from " + state +" which is the southern part of india\n");
-                    break;
-                }
-                default:{
-                    System.out.print("invalid state");
-                    break;
-                }
-            }
-            switch(company){
-                case "Google":
-                case "Facebook":
-                case "Samsung":
-                case "IBM":
-                case "Apple":
-                System.out.print(name + " belong to the top MNC which is " + company);
                 break;
-            
-            default:
-                System.out.print(name + " does not belong to the top MNC");
+                case 2:
+                System.out.println("Enter the name you want to search :");
+                String searchname=scan.nextLine();
+                boolean found=false;
+                for(int i=0;i<elm;i++){
+                    if(searchname.equals(names[i])){
+                        System.out.println("Searched name is " + searchname + " with index position " +i);
+                        found=true;
+                        break;
+                    }
+
+                }
+                if(!found){
+                    System.out.println("CANT FIND THE GIVEN NAME");
+                }
                 break;
+                
+                case 3:
+                int index=-1;
+                System.out.print("Enter the name you want to remove :");
+                String removename=scan.nextLine();
+                for(int i=0;i<elm;i++){
+                        if(names[i].equals(removename)){
+                            index=i;
+                            break;
+                        }
+                    }
+                    
+                    if(index==-1){
+                        System.out.println("CANT FIND THE GIVEN NAME");
+                        break;
+                    }
+                    else{
+                        for(int j=index;j<elm-1;j++){
+                            names[j]=names[j+1];
+                        }
+                        elm--;
+                        System.out.println("The name " +removename+ " has been removed");
+                    }  
+                    break;
+                    case 4:
+                       for(int i =0;i<elm;i++){
+                            System.out.println(names[i]);
+                         }
+                    break;
+                     
+                }
+
+                
+                System.out.println("Do you wish to continue \n1.yes  \n2.no");
+                option =Integer.parseInt(scan.nextLine());
             
 
-            }
-          
-          
-          }
-          
-          
+            }while(option==1);
+               
+            
+        }
+           
+
 }
-    
