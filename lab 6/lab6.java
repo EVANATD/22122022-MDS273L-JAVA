@@ -55,7 +55,7 @@ public class lab6 {
             System.out.println("2.Search a student");
             System.out.println("3.Display");
             System.out.println("4.Update student details");
-            System.out.println("6.Exit");
+            System.out.println("5.Exit");
             int choice = scan.nextInt();
 
             switch (choice) {
@@ -124,7 +124,7 @@ if (!ufound) {
 System.out.println("Student with registration number " + uregno + " not found!");
 }
 break;
-case 6:
+case 5:
 System.out.println("Exiting from the program");
 return;
 default:
