@@ -24,7 +24,8 @@ This Java software uses a simple name management system. The user can add names 
 flow chart:
 
 
-![lab 2](https://user-images.githubusercontent.com/118044613/236854681-7912c0de-e99c-4d79-9621-2fb660f997d9.png)
+![FL2](https://github.com/EVANATD/22122022-MDS273L-JAVA/assets/118044613/b7bc833b-4992-45c0-8f98-4c1cdf755f19)
+
 
 
 
