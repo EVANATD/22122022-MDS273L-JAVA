@@ -42,7 +42,7 @@ Option 1 enables the user to add a new student to the ArrayList by asking for in
 
 Flowchart:
 
-![lab 6](https://github.com/EVANATD/22122022-MDS273L-JAVA/assets/118044613/86b23bf6-7056-40ee-b154-c54a46e5f911)
+![image](https://github.com/EVANATD/22122022-MDS273L-JAVA/assets/118044613/5974fea2-685e-4c15-a39e-e0f863230631)
 
 
 
