@@ -34,3 +34,11 @@ The programme uses three primary techniques:
 A menu with three alternatives is displayed while the programme is running in a loop: enter details, display details, or exit. The software executes the  action corresponding to the user's selection, which they input using the Scanner class.
 In conclusion, the code offers a fundamental Java implementation of a student information system, using arrays to store student information and a menu-driven user interface.
 
+
+
+Flowchart:
+
+
+
+![FL3](https://github.com/EVANATD/22122022-MDS273L-JAVA/assets/118044613/69dbb43d-1618-4600-a45f-85608a01e345)
+
