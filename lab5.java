@@ -1,32 +1,36 @@
-import java.util.Scanner;
+import java.util.Scanner;	
 
-public class lab5 {
+public class lab5{
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        int choice;
+        Scanner scanner = new Scanner(System.in);
+
+        int option;
 
         do {
-            System.out.println("\nMenu:");
+            System.out.println("Menu:");
             System.out.println("1. Encrypt a message");
             System.out.println("2. Decrypt a message");
             System.out.println("3. Exit");
-            System.out.print("Enter your choice: ");
-            choice = input.nextInt();
 
-            switch (choice) {
+            System.out.print("Enter your choice: ");
+            option = scanner.nextInt();
+
+            switch (option) {
                 case 1:
-                    String messageToEncrypt = getMessageFromUser(input);
+                    System.out.print("Enter the message to encrypt: ");
+                    String messageToEncrypt = scanner.next();
                     String encryptedMessage = encrypt(messageToEncrypt);
                     System.out.println("Encrypted message: " + encryptedMessage);
                     break;
                 case 2:
-                    String messageToDecrypt = getMessageFromUser(input);
+                    System.out.print("Enter the message to decrypt: ");
+                    String messageToDecrypt = scanner.next();
                     String decryptedMessage = decrypt(messageToDecrypt);
                     System.out.println("Decrypted message: " + decryptedMessage);
                     break;
                 case 3:
-                    System.out.println("Exiting program...");
+                    System.out.println("Exiting from the program");
                     break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
@@ -35,46 +39,49 @@ public class lab5 {
         } while (choice != 3);
     }
 
-    public static String getMessageFromUser(Scanner input) {
-        System.out.print("Enter a message: ");
-        input.nextLine(); 
-        return input.nextLine();
-    }
-
     public static String encrypt(String message) {
         String cipher = "XYZABCDEFGHIJKLMNOPQRSTUVW";
         String encryptedMessage = "";
+
         for (int i = 0; i < message.length(); i++) {
             char ch = message.charAt(i);
+
             if (Character.isLetter(ch)) {
-                char encryptedChar = cipher.charAt(Character.toUpperCase(ch) - 65);
+                int index = Character.toUpperCase(ch) - 'A';
+                char encryptedChar = cipher.charAt(index);
+
                 if (Character.isLowerCase(ch)) {
-                    encryptedMessage += Character.toUpperCase(encryptedChar);
-                } else {
-                    encryptedMessage += encryptedChar;
+                    encryptedChar = Character.toLowerCase(encryptedChar);
                 }
+                encryptedMessage += encryptedChar;
             } else {
                 encryptedMessage += ch;
             }
         }
+
         return encryptedMessage;
     }
-    public static String decrypt(String encryptedMessage) {
+
+    public static String decrypt(String message) {
         String cipher = "XYZABCDEFGHIJKLMNOPQRSTUVW";
         String decryptedMessage = "";
-        for (int i = 0; i < encryptedMessage.length(); i++) {
-            char ch = encryptedMessage.charAt(i);
+
+        for (int i = 0; i < message.length(); i++) {
+            char ch = message.charAt(i);
+
             if (Character.isLetter(ch)) {
-                char decryptedChar = (char) (cipher.indexOf(Character.toUpperCase(ch)) + 65);
-                if (Character.isUpperCase(ch)) {
-                    decryptedMessage += Character.toUpperCase(decryptedChar);
-                } else {
-                    decryptedMessage += decryptedChar;
+                int index = cipher.indexOf(Character.toUpperCase(ch));
+                char decryptedChar = (char) ('A' + index);
+
+                if (Character.isLowerCase(ch)) {
+                    decryptedChar = Character.toLowerCase(decryptedChar);
                 }
+                decryptedMessage += decryptedChar;
             } else {
                 decryptedMessage += ch;
             }
         }
+
         return decryptedMessage;
     }
 }
